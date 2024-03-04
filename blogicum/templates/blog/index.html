@@ -16,13 +16,13 @@
         Дата: {{ post.date }}
       </li>
       <li>
-        Категория: <a href="{{ post.category }}">travel</a>
+        Категория: <a href=""> </a>
       </li>
     </ul>
     <p>
       {{ post.text|truncatewords:10 }}...
     </p>
-    <a href="detail.html">Читать полный текст</a>
+    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
   </article>
   {% endfor %}                 
 </div>
