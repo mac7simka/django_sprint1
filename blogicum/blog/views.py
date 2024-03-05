@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 
 
@@ -51,10 +52,13 @@ def index(request):
 
 
 def post_detail(request, id):
-    pk = id
     template_name = 'blog/detail.html'
-    context = {'posts': posts[pk]}
+    try:
+        context = {'post': posts[id]}
+    except IndexError:
+        return HttpResponseNotFound('<h1>Страница не найдена</h1>')
     return render(request, template_name, context)
+
 
 
 def category_posts(request, category_slug):

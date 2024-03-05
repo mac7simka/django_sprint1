@@ -1,23 +1,12 @@
 {% extends "base.html" %}
-{% block title %} <title>{{ posts.location }} {{ posts.date }}</title> {% endblock %}
+{% block title %} <title>{{ post.location }} {{ post.date }}</title> {% endblock %}
 
 {% block content %}
-  <div class="container py-5">
-    <article>
-      <ul>
-        <li>
-          Место: {{ posts.location }}              
-        </li>
-        <li>
-          Дата: {{ posts.date }}
-        </li>
-        <li>
-          Категория: <a href="">not-my-day</a>
-        </li>
-      </ul>         
-      <p>
-        {{ posts.text }}
-      </p>          
-    </article>                
-  </div>
+<div class="container py-5">
+  {% include "includes/article.html" %}        
+    <p>
+      {{ post.text }}
+    </p>          
+  </article>                
+</div>
 {% endblock %}   
